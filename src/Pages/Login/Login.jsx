@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
     const handleSubmitSignIn = event => {
         event.preventDefault();
@@ -13,16 +14,26 @@ const Login = () => {
         const password = form.password.value;
 
         signIn(email, password)
-        .then(result => {
-            const user = result.user;
-            form.reset();
-            toast.success('Login Succesfull')
-            console.log(user);
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                toast.success('Login Succesfull')
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
+    }
+
+    const handleSubmitGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                result.user;
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -56,7 +67,11 @@ const Login = () => {
                                     <small>Your don't have an account? <Link to='/register' className='link link-hover'>Create a new account</Link></small>
                                 </label>
                             </div>
+
                         </form>
+                        <div className="form-control card-body mb-6">
+                            <button onClick={handleSubmitGoogle} className="btn bg-blue-700"><span className='me-5'><FaGoogle /></span> Sign in with Google</button>
+                        </div>
                     </div>
                 </div>
             </div>
