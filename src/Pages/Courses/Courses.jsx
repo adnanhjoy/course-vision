@@ -1,9 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import AllCourse from '../AllCourse/AllCourse';
 
 const Courses = () => {
+    const courses = useLoaderData();
+    console.log(courses)
     return (
-        <div>
-            <h1>This is Course Page</h1>
+        <div className='flex gap-5 mt-20 justify-center'>
+            {
+                courses.map(course => 
+                <AllCourse
+                    key={course.id}
+                    course={course}
+                ></AllCourse>)
+            }
         </div>
     );
 };
