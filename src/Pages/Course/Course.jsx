@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Course = () => {
     const courses = useLoaderData();
     return (
-        <div className='md:flex gap-5 justify-center mt-14 w-11/12 mx-auto'>
+        <div className='md:grid grid-cols-2 gap-5 justify-center mt-14 w-11/12 mx-auto'>
             {
                 courses.map(course =>
                     <div key={course.id} className="card card-compact w-96 bg-base-100 shadow-xl">
