@@ -12,7 +12,7 @@ const Course = () => {
                         <figure><img className=' h-40 w-full' src={course?.img} alt='course' /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{course?.title}</h2>
-                            <p>{course?.details.slice(0, 100,)+"..."}</p>
+                            <p>{course?.details.slice(0, 100,) + "..."}<Link className='link link-hover font-bold' to={`/course/${course?.course_id}/course-detail/${course.id}`}>Course Detail</Link></p>
                             <div className="card-actions justify-between items-center">
                                 <div className='flex items-center'>
                                     <span className='text-warning'><FaStar /></span> <p className='m-0 ms-2'>{course?.rating}</p>
