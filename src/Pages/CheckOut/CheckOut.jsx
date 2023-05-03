@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const CheckOut = () => {
+    const course = useLoaderData()
+    console.log(course)
     return (
         <div>
-            <h1>This is Check Out page</h1>
+            <h1>{course.title}</h1>
         </div>
     );
 };
