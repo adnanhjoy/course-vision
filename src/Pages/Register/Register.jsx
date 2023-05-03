@@ -11,6 +11,7 @@ const Register = () => {
         const form = event.target;
         const fname = form.fname.value;
         const lname = form.lname.value;
+        const photourl = form.photourl.value;
         const name = fname + " " + lname;
         const email = form.email.value;
         const password = form.password.value;
@@ -18,14 +19,14 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             result.user;
-            updateUser(name)
+            updateUser(name, photourl)
             form.reset()
         })
         .catch(error => console.error(error))
     }
 
-    const updateUser = (name) => {
-        updateUserProfile(name)
+    const updateUser = (name, photourl) => {
+        updateUserProfile(name, photourl)
         .then(() => {})
         .catch(error => console.error(error))
     }
@@ -51,6 +52,12 @@ const Register = () => {
                                     <span className="label-text">Last Name</span>
                                 </label>
                                 <input type="text" placeholder="last name" className="input input-bordered" name='lname' />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input type="text" placeholder="photourl" className="input input-bordered" name='photourl' />
                             </div>
                             <div className="form-control">
                                 <label className="label">

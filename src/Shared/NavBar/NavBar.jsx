@@ -8,8 +8,8 @@ const NavBar = () => {
 
     const handleLogout = () => {
         logOut()
-        .then(() => {})
-        .catch(error => console.error(error))
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -38,11 +38,13 @@ const NavBar = () => {
                 </div>
 
                 <div className="navbar-end">
-                    <p>{user?.displayName}</p>
-                    {
-                        user?.uid ? <img className='h-7 w-7 rounded-full mx-3' src={user?.photoURL} alt="" />
-                        : <FaUserAlt/>
-                    }
+                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        {
+                            user?.uid ? <img className='h-7 w-7 rounded-full mx-3' src={user?.photoURL} alt="" />
+                                : <FaUserAlt />
+                        }
+                    </div>
+
                     <label className="swap swap-rotate mx-3">
                         <input type="checkbox" />
 
