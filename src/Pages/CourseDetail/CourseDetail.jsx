@@ -15,7 +15,7 @@ const CourseDetail = () => {
                         <div className='flex items-center'>
                             <span className='text-warning'><FaStar /></span> <p className='m-0 ms-2'>{course?.rating}</p>
                         </div>
-                        <Link>
+                        <Link to={`/course/${course?.id}/checkout`}>
                             <button className="btn btn-xs btn-primary">Enroll Now</button>
                         </Link>
                         <div className='flex items-center font-bold'>
