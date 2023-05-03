@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AllCourse = ({ course }) => {
     const { id, name, details, img, enroll } = course;
@@ -14,7 +15,9 @@ const AllCourse = ({ course }) => {
                         <div className='flex items-center'>
                             <FaShoppingCart /> <p className='m-0 ms-2'>{enroll}</p>
                         </div>
-                        <button className="btn btn-primary">Enroll Now</button>
+                        <Link to={`/course/${id}`}>
+                        <button className="btn btn-primary">See All Course</button>
+                        </Link>
                     </div>
                 </div>
             </div>

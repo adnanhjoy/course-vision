@@ -8,6 +8,7 @@ import Faq from '../Pages/Faq/Faq';
 import Blog from '../Pages/Blog/Blog';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
+import Course from '../Pages/Course/Course';
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/course/:id',
+                element: <Course></Course>,
+                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
                 path: '*',
